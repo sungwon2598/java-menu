@@ -7,6 +7,14 @@ import java.util.List;
 import menu.constant.ExceptionMessage;
 
 public class NamePorcess {
+    private static final int MIN_NAME_LENGTH = 2;
+    private static final int MAX_NAME_LENGTH = 4;
+    private static final int MIN_INPUT_SIZE = 2;
+    private static final int MAX_INPUT_SIZE = 5;
+    private static final String COMMA = ",";
+    private static final String DOUBLE_COMMA = ",,";
+    private static final String SPACE = " ";
+
     public List<String> process(String input) { //문자열의 쉼표검증, 공백제거 후 문자열 리스트로 반환
         validateCommas(input);
         List<String> inputs = splitByComma(input);
@@ -15,7 +23,7 @@ public class NamePorcess {
     }
 
     private void validateCommas(String input) {
-        if (input.startsWith(",") || input.endsWith(",") || input.contains(",,")) {
+        if (input.startsWith(COMMA) || input.endsWith(COMMA) || input.contains(DOUBLE_COMMA)) {
             throw new IllegalArgumentException(ExceptionMessage.INVALID_COMMA_USAGE.getMessage());
         }
     }
@@ -41,7 +49,7 @@ public class NamePorcess {
 
     private void noSpaces(List<String> inputs) {
         inputs.stream()
-                .filter(input -> input.contains(" ")) // 공백이 포함된 경우 필터링
+                .filter(input -> input.contains(SPACE)) // 공백이 포함된 경우 필터링
                 .findFirst()
                 .ifPresent(input -> {
                     throw new IllegalArgumentException(ExceptionMessage.PLEASE_NOT_INPUT_BETWEEN_BLANK.getMessage());
@@ -49,14 +57,15 @@ public class NamePorcess {
     }
 
     private void size(List<String> inputs) {
-        if (inputs.size() < 2 || inputs.size() > 5) {
+        if (inputs.size() < MIN_INPUT_SIZE || inputs.size() > MAX_INPUT_SIZE) {
             throw new IllegalArgumentException(ExceptionMessage.PLEASE_INPUT_CORRECT_COACH.getMessage());
         }
     }
 
     private void nameLength(List<String> names) {
         names.stream()
-                .filter(name -> name.length() > 4 || name.length() < 2) // 이름 길이가 4보다 크거나 2보다 작은 경우 필터링
+                .filter(name -> name.length() > MAX_NAME_LENGTH
+                        || name.length() < MIN_NAME_LENGTH) // 이름 길이가 4보다 크거나 2보다 작은 경우 필터링
                 .findFirst()
                 .ifPresent(name -> {
                     throw new IllegalArgumentException(ExceptionMessage.PLEASE_CORRECT_LENGTH.getMessage());

@@ -6,6 +6,12 @@ import menu.menu.Menu;
 
 public class SelectMenu {
     private static final Menu menu = new Menu();
+    private static final int NUMBER_OF_CATEGORIES = 5;
+    private static final String JAPANESE = "일식";
+    private static final String WESTERN = "양식";
+    private static final String CHINESE = "중식";
+    private static final String KOREAN = "한식";
+    private static final String ASIAN = "아시안";
     private final Coaches coaches;
     private final List<String> categories;
 
@@ -15,25 +21,25 @@ public class SelectMenu {
     }
 
     public Coaches process() {
-        for (int i = 0; i < 5; i++) {
+        for (int i = 0; i < NUMBER_OF_CATEGORIES; i++) {
             String category = categories.get(i);
             for (int j = 0; j < coaches.size(); j++) {
                 Coach coach = coaches.getCoach(j);
-                menuP(category, "일식", menu.getJapan(), coach);
-                menuP(category, "양식", menu.getWestern(), coach);
-                menuP(category, "중식", menu.getChina(), coach);
-                menuP(category, "한식", menu.getKorea(), coach);
-                menuP(category, "아시안", menu.getAsisa(), coach);
+                menuP(category, JAPANESE, menu.getJapan(), coach);
+                menuP(category, WESTERN, menu.getWestern(), coach);
+                menuP(category, CHINESE, menu.getChina(), coach);
+                menuP(category, KOREAN, menu.getKorea(), coach);
+                menuP(category, ASIAN, menu.getAsisa(), coach);
 
             }
         }
         return coaches;
     }
 
-    private void menuP(String category, String 일식, List<String> menu, Coach coach) {
-        if (category.equals(일식)) {
-            List<String> japan = menu;
-            menu(coach, japan);
+    private void menuP(String category, String cat, List<String> menu, Coach coach) {
+        if (category.equals(cat)) {
+            List<String> categories = menu;
+            menu(coach, categories);
         }
     }
 

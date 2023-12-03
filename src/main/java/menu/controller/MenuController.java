@@ -11,6 +11,7 @@ import menu.view.InputView;
 import menu.view.OutputView;
 
 public class MenuController {
+    private static final int DAY_LENGTH = 5;
     private static final InputView inputView = new InputView();
     private static final OutputView outputView = new OutputView();
     private static final HatesProcess hatesProcess = new HatesProcess();
@@ -40,7 +41,7 @@ public class MenuController {
 
     private void outputResult(List<String> categories) {
         String category = "";
-        for (int i = 0; i < 5; i++) {
+        for (int i = 0; i < DAY_LENGTH; i++) {
             category += "| " + categories.get(i) + " ";
         }
         category += "]";
