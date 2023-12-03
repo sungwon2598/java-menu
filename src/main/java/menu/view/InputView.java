@@ -18,7 +18,7 @@ public class InputView {
 
     private static void validateEmpty(String input) {
         if (input.isEmpty()) { // 입력값이 빈 문자열인 경우
-            throw new IllegalArgumentException(ExceptionMessage.PLEASE_NOT_INPUT__BLANK.getMessage());
+            throw new IllegalArgumentException(ExceptionMessage.PLEASE_NOT_INPUT_BLANK.getMessage());
         }
     }
 
