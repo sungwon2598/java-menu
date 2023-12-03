@@ -14,18 +14,28 @@ public class MenuController {
     private static final InputView inputView = new InputView();
     private static final OutputView outputView = new OutputView();
     private static final HatesProcess hatesProcess = new HatesProcess();
-    private static final NamePorcess namePorcess = new NamePorcess();
     private Coaches coaches;
 
     public void start() {
         inputView.printInit();
-        this.coaches = new Coaches(namePorcess.process(inputView.requestCoachNames()));
-        System.out.println(coaches.size());
+        inputNames();
         processCoach();
 
         List<String> categories = porcessCategory();
 
         outputResult(categories);
+    }
+
+    private void inputNames() {
+        while (true) {
+            try {
+                NamePorcess namePorcess = new NamePorcess();
+                this.coaches = new Coaches(namePorcess.process(inputView.requestCoachNames()));
+                break;
+            } catch (IllegalArgumentException e) {
+                System.out.println(e.getMessage());
+            }
+        }
     }
 
     private void outputResult(List<String> categories) {
@@ -50,9 +60,21 @@ public class MenuController {
 
     private void processCoach() {
         for (int i = 0; i < coaches.size(); i++) {
+            while (true) {
+                inputHates(i);
+                break;
+            }
+
+        }
+    }
+
+    private void inputHates(int i) {
+        try {
             String hates = inputView.requestCoachHate(coaches.getCoachName(i));
             Coach coach = new Coach(coaches.getCoachName(i), hatesProcess.process(hates));
             coaches.addCoach(coach);
+        } catch (IllegalArgumentException e) {
+            System.out.println(e.getMessage());
         }
     }
 }
