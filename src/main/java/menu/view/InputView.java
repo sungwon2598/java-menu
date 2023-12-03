@@ -5,6 +5,12 @@ import menu.constant.ExceptionMessage;
 
 public class InputView {
 
+    private static void validateEmpty(String input) {
+        if (input.isEmpty()) { // 입력값이 빈 문자열인 경우
+            throw new IllegalArgumentException(ExceptionMessage.PLEASE_NOT_INPUT_BLANK.getMessage());
+        }
+    }
+
     public void printInit() {
         System.out.println("점심 메뉴 추천을 시작합니다.");
     }
@@ -16,14 +22,8 @@ public class InputView {
         return input;
     }
 
-    private static void validateEmpty(String input) {
-        if (input.isEmpty()) { // 입력값이 빈 문자열인 경우
-            throw new IllegalArgumentException(ExceptionMessage.PLEASE_NOT_INPUT_BLANK.getMessage());
-        }
-    }
-
     public String requestCoachHate(String name) {
-        System.out.println(name+"(이)가 못 먹는 메뉴를 입력해 주세요.");
+        System.out.println(name + "(이)가 못 먹는 메뉴를 입력해 주세요.");
         return Console.readLine().trim(); // 입력값의 좌우 공백제거
     }
 

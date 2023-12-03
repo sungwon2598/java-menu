@@ -6,8 +6,8 @@ import java.util.List;
 public class Coach {
 
     private final List<String> hates;
-    private List<String> eat = new ArrayList<>();
     private final String name;
+    private final List<String> eat = new ArrayList<>();
 
     public Coach(String name, List<String> hates) {
         this.name = name;
@@ -24,10 +24,6 @@ public class Coach {
 
     public List<String> getEat() {
         return eat;
-    }
-
-    public String getName() {
-        return name;
     }
 
 }

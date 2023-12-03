@@ -4,8 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Coaches {
-    private List<String> coachesName;
-    private List<Coach> coaches = new ArrayList<>();
+    private final List<String> coachesName;
+    private final List<Coach> coaches = new ArrayList<>();
 
     public Coaches(List<String> coachesName) {
         this.coachesName = new ArrayList<>(coachesName);
@@ -15,7 +15,7 @@ public class Coaches {
         coaches.add(coach);
     }
 
-    public  String getCoachName(int index) {
+    public String getCoachName(int index) {
         return coachesName.get(index);
     }
 
