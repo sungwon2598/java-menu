@@ -9,7 +9,7 @@ public class InputView {
         System.out.println("점심 메뉴 추천을 시작합니다.");
     }
 
-    public String requestInput() {
+    public String requestCoachNames() {
         System.out.println("코치의 이름을 입력해 주세요. (, 로 구분)");
         String input = Console.readLine().trim(); // 입력값의 좌우 공백제거
         validateEmpty(input);
@@ -21,4 +21,10 @@ public class InputView {
             throw new IllegalArgumentException(ExceptionMessage.PLEASE_NOT_INPUT__BLANK.getMessage());
         }
     }
+
+    public String requestCoachHate(String name) {
+        System.out.println(name+"(이)가 못 먹는 메뉴를 입력해 주세요.");
+        return Console.readLine().trim(); // 입력값의 좌우 공백제거
+    }
+
 }
