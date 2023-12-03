@@ -7,7 +7,7 @@ import java.util.List;
 import java.util.Map;
 import menu.menu.Menu;
 
-public class selectCategory {
+public class SelectCategory {
     private static final Menu menu = new Menu();
     public List<String> process() {
         List<String> selectedCategory = new ArrayList<>();
