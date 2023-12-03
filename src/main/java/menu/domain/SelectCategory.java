@@ -9,9 +9,15 @@ import menu.menu.Menu;
 
 public class SelectCategory {
     private static final Menu menu = new Menu();
+
     public List<String> process() {
         List<String> selectedCategory = new ArrayList<>();
         Map<String, Integer> categoryCount = new HashMap<>();
+        select(categoryCount, selectedCategory);
+        return selectedCategory;
+    }
+
+    private static void select(Map<String, Integer> categoryCount, List<String> selectedCategory) {
         for (int i = 0; i < 5; i++) {
             String category;
             do {
@@ -21,7 +27,6 @@ public class SelectCategory {
             selectedCategory.add(category);
             categoryCount.put(category, categoryCount.getOrDefault(category, 0) + 1);
         }
-        return selectedCategory;
     }
 
 }
