@@ -1,16 +1,21 @@
 package menu.domain;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Coach {
 
+    private final List<String> hates;
+    private List<String> eat = new ArrayList<>();
+    private final String name;
 
-    private List<String> hates;
-    private List<String> eat;
-    private String name;
-
-    public Coach(String name) {
+    public Coach(String name, List<String> hates) {
         this.name = name;
+        this.hates = hates;
+    }
+
+    public void addEat(String menu) {
+        eat.add(menu);
     }
 
     public List<String> getHates() {
@@ -24,4 +29,5 @@ public class Coach {
     public String getName() {
         return name;
     }
+
 }
