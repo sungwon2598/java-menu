@@ -38,7 +38,14 @@ public class HatesProcess {
 
     public void validateInput(List<String> inputs) { // 리스트에서 길이와 중복을 검증
         uniqueNames(inputs);
+        length(inputs);
         noSpaces(inputs);
+    }
+
+    private void length(List<String> inputs) {
+        if (inputs.size() > 2) {
+            throw new IllegalArgumentException(ExceptionMessage.PLEASE_CORRECT_LENGTH_HATES.getMessage());
+        }
     }
 
     private void noSpaces(List<String> inputs) {

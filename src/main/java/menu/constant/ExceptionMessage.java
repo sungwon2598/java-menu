@@ -5,6 +5,7 @@ public enum ExceptionMessage { //메시지는 꼭!! 문제에 맞게 수정할 �
     PLEASE_NOT_INPUT_BETWEEN_BLANK("사이에 공백을 입력하지 말아주세요"),
     PLEASE_INPUT_UNIQUE("중복되지 않게 입력해주세요"),
     PLEASE_CORRECT_LENGTH("올바른 길이로 입력해주세요"),
+    PLEASE_CORRECT_LENGTH_HATES("최대 2개만 입력해주세요"),
     PLEASE_NOT_INPUT_BLANK("공백을 입력하지 말아주세요"),
     PLEASE_INPUT_CORRECT_COACH("코치는 최소 2명, 최대 5명까지 식사를 함께합니다, 올바른 인원을 입력해주세요");
 
